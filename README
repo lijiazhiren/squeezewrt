@@ -4,6 +4,7 @@ home assistant的SlimProto Player集成能自动识别添加
 
 需要以下模块  进入make menuconfig后自行添加
 Kernel modules----Sound Support----kmod-sound-core
+Kernel modules----Sound Support----kmod-usb-audio
 Sound----alsa-utils
 Sound----squeezelite-full
 -----------------------------------------------------------
