@@ -181,44 +181,6 @@ apm.optional = false
 
 --------------------------------------------------------------------------------------
 
-s:tab("codec", "Codecs")
-
-local flc = FlagIfFileExists("codec", s, "ls /usr/lib/libFLAC.*", "decode_flac", "FLAC in player", "FLAC decoding takes place in player, not in server", "No libFLAC found");
-if flc ~= nil then
-    flc.optional = false
-    flc.default = 0
-end
-
-local mad = FlagIfFileExists("codec", s, "ls /usr/lib/libmad.*", "decode_mp3", "MP3 in player", "MP3 decoding takes place in player, not in server", "No libmad found");
-if mad ~= nil then
-    mad.optional = false
-    mad.default = 0
-end
-
-local ogg = FlagIfFileExists("codec", s, "ls /usr/lib/libogg.*", "decode_ogg", "OGG in player", "OGG decoding takes place in player, not in server", "No libogg found");
-if ogg ~= nil then
-    ogg.optional = false
-    ogg.default = 0
-end
-
-local faad = FlagIfFileExists("codec", s, "ls /usr/lib/libfaad.*", "decode_aac", "AAC in player", "AAC decoding takes place in player, not in server", "No libfaad found");
-if faad ~= nil then
-    faad.optional = false
-    faad.default = 0
-end
-
-local wma = FlagIfFileExists("codec", s, "ls /usr/lib/libavformat.*", "decode_wma_alac", "WMA and ALAC in player", "WMA and ALAC decoding takes place in player, not in server", "No libavformat found");
-if wma ~= nil then
-    wma.optional = false
-    wma.default = 0
-end
-
-local dop = s:taboption("codec", Flag, "dsd_over_pcm", "DSD over PCM", "Output device supports DSD over PCM (DoP)");
-dop.optional = false
-dop.default = 0
-
---------------------------------------------------------------------------------------
-
 s:tab("remote", "Remote control")
 
 local ir = FlagIfFileExists("remote", s, "ls /etc/init.d/lircd", "ircontrol", "Use LIRC", "Enable LIRC remote control support", "No LIRC daemon found")
