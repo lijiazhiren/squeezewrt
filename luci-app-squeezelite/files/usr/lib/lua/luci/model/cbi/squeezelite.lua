@@ -47,7 +47,7 @@ local o = s:option(ListValue, "device", "Output device", "Audio device to play m
 o.optional = false
 o.default = "hw:0,0"
 o:value("hw:0,0","hw:0,0")
-for devstring in luci.util.execi("aplay -l") do
+for devstring in luci.util.execi("/usr/bin/squeezelite -l") do
     local pair = luci.util.split(devstring, "-", 1)
     if pair[2] == nil then
     else
